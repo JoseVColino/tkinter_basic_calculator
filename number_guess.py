@@ -15,14 +15,21 @@ def check_guess():
         return
 
     try:
-        #last_attempt.set(guess)
         guess = int(entry.get())
+
+        if guess == last_attempt.get():
+            feedback.set("Try to guess a different number!")
+            return
+        
+        last_attempt.set(guess)
         if guess < number:
             feedback.set("the number is higher!")
         elif guess > number:
             feedback.set("the number is lower!")
         else:
-            feedback.set("Correct!")
+            messagebox.showinfo("You Got It!", f"You've guessed the number correctly! It was {number}!")
+            entry.config(state='disabled')
+            check_button.config(state='disabled')
         
         atempts.set(atempts.get() + 1)
         formatted_text.set(f'Atempts: {atempts.get()}')
@@ -52,5 +59,5 @@ formatted_text.set(f'Atempts: {atempts.get()}')
 tk.Label(root, textvariable=feedback).pack()
 tk.Label(root, textvariable=formatted_text).pack()
 
-
+print(number)
 root.mainloop()
