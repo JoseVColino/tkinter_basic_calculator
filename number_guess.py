@@ -15,11 +15,12 @@ def check_guess():
         return
 
     try:
+        #last_attempt.set(guess)
         guess = int(entry.get())
         if guess < number:
-            feedback.set("Too low!")
+            feedback.set("the number is higher!")
         elif guess > number:
-            feedback.set("Too high!")
+            feedback.set("the number is lower!")
         else:
             feedback.set("Correct!")
         
@@ -42,6 +43,7 @@ check_button.pack()
 
 feedback = tk.StringVar()
 atempts = tk.IntVar()
+last_attempt = tk.IntVar()
 
 atempts.set(0)
 formatted_text = tk.StringVar()
