@@ -5,7 +5,7 @@ import random
 MAX_ATEMPTS = 8
 number = random.randint(1, 100)
 
-def check_guess():
+def check_logic():
     if atempts.get() >= MAX_ATEMPTS:
 
         messagebox.showinfo("Game Over", f"You've reached the max attempts! The number was {number}.")
@@ -45,7 +45,7 @@ tk.Label(root, text="Guess a number (1-100):").pack()
 entry = tk.Entry(root)
 entry.pack()
 
-check_button = tk.Button(root, text="Check", command=check_guess)
+check_button = tk.Button(root, text="Check", command=check_logic)
 check_button.pack()
 
 feedback = tk.StringVar()
